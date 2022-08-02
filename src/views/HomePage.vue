@@ -9,7 +9,7 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
+          <ion-title size="large">Custome Blank</ion-title>
         </ion-toolbar>
       </ion-header>
     
@@ -22,19 +22,20 @@
 </template>
 
 <script>
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import { defineComponent } from 'vue';
+// import Tabs from '@/src/components/tabs'
+// import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
-export default defineComponent({
+export default {
   name: 'HomePage',
   components: {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar
+    // Tabs
+    // IonContent,
+    // IonHeader,
+    // IonPage,
+    // IonTitle,
+    // IonToolbar
   }
-});
+};
 </script>
 
 <style scoped>
