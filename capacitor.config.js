@@ -1,6 +1,6 @@
 const config = {
   appId: 'io.ionic.starter',
-  appName: 'MySecondIonicApp',
+  appName: 'FoodApp',
   webDir: 'dist',
   bundledWebRuntime: false
 };
