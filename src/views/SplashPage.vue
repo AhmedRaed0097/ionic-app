@@ -28,7 +28,7 @@
         alt=""
       />
     </swiper-slide>
-    <ion-button v-if="!isEnd" size="small" fill="clear" class="option-btn swiper-button-next">
+    <ion-button v-if="!isEnd" size="small" fill="clear" class="option-btn " @click="swiper.slideNext()">
       Enter
       <ion-icon
         slot="end"
@@ -48,7 +48,7 @@
 </template>
 <script>
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { Swiper, SwiperSlide,useSwiper  } from "swiper/vue";
 import { IonButton, IonIcon } from "@ionic/vue";
 import { heart, chevronForwardOutline } from "ionicons/icons";
 import {onMounted, ref} from 'vue';
@@ -71,6 +71,7 @@ export default {
     IonIcon,
   },
   setup() {
+    const swiper = useSwiper();
     const mySlides = ref(null)
     const isEnd = ref(false)
     const onSwiper = (swiper) => {
@@ -103,6 +104,7 @@ export default {
       onSwiper,
       onSlideChange,
       mySlides,
+      swiper,
       nextSilde
     };
   },
