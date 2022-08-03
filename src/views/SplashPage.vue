@@ -1,45 +1,110 @@
 <template>
-  <ion-page>
-    <ion-content>
-      <swiper :modules="modules">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-      </swiper>
-    </ion-content>
-  </ion-page>
+  <swiper
+    ref="mySlides"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+    :pagination="true"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide>
+      <img
+        class="slide-img"
+        src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80"
+        alt=""
+      />
+    </swiper-slide>
+    <swiper-slide :isVisible="true">
+      <img
+        class="slide-img"
+        src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        alt=""
+      />
+    </swiper-slide>
+    <swiper-slide>
+      <img
+        class="slide-img"
+        src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        alt=""
+      />
+    </swiper-slide>
+    <ion-button v-if="!isEnd" size="small" fill="clear" class="option-btn swiper-button-next">
+      Enter
+      <ion-icon
+        slot="end"
+        size="small"
+        :icon="chevronForwardOutline"
+      ></ion-icon>
+    </ion-button>
+    <ion-button v-else size="small" fill="clear" class="option-btn swiper-button-prev">
+      skip
+      <ion-icon
+        slot="end"
+        size="small"
+        :icon="chevronForwardOutline"
+      ></ion-icon>
+    </ion-button>
+  </swiper>
 </template>
-
 <script>
-// import Tabs from '@/src/components/tabs'
-// import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import "swiper/scss";
-import "@ionic/vue/css/ionic-swiper.css";
-  import 'swiper/scss/autoplay';
-  import 'swiper/scss/keyboard';
-  import 'swiper/scss/pagination';
-  import 'swiper/scss/scrollbar';
-  import 'swiper/scss/zoom';
-  import '@ionic/vue/css/ionic-swiper.css';
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { IonButton, IonIcon } from "@ionic/vue";
+import { heart, chevronForwardOutline } from "ionicons/icons";
+import {onMounted, ref} from 'vue';
 
-  import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import { IonContent, IonPage } from '@ionic/vue';
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/scss/pagination";
+
+import "../scss/global.scss";
+
+// import required modules
+import { Pagination } from "swiper";
+
 export default {
-  name: "SplashPage",
   components: {
-  Swiper, SwiperSlide, IonContent, IonPage 
+    Swiper,
+    SwiperSlide,
+    IonButton,
+    IonIcon,
   },
   setup() {
-      return {
-        modules: [Autoplay, Keyboard, Pagination, Scrollbar, Zoom],
-      };
-    },
+    const mySlides = ref(null)
+    const isEnd = ref(false)
+    const onSwiper = (swiper) => {
+      console.log('x ',(swiper));
+    };
+    const onSlideChange = (swiper) => {
+        isEnd.value = swiper.isEnd
+      
+        console.log("slide change ",swiper);
+        return isEnd
+      
+
+    };
+
+  onMounted( ()=>{
+      console.log('zxxAA ', {...mySlides.value});
+  })
+
+
+    const nextSilde = async () => {
+      
+      // const s= await mySlides?.value?.$el.getSwiper()
+      // console.log('s ',s);
+    };
+    return {
+      modules: [Pagination],
+      heart,
+      chevronForwardOutline,
+      isEnd,
+      onSwiper,
+      onSlideChange,
+      mySlides,
+      nextSilde
+    };
+  },
 };
 </script>
-<style lang="scss" scoped>
-.swiper{
-  background-color: var(--ion-color-light);
-  // background: red;
-}
-</style>
