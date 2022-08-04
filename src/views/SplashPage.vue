@@ -1,34 +1,39 @@
 <template>
   <swiper
-    ref="mySlides"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
     :pagination="true"
     :modules="modules"
+     :initial-slide="0"
     class="mySwiper"
   >
     <swiper-slide>
-      <img
+      <!-- <img
         class="slide-img"
         src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80"
         alt=""
-      />
+      /> -->
+      Slide 1
     </swiper-slide>
     <swiper-slide :isVisible="true">
-      <img
+      <!-- <img
         class="slide-img"
         src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
         alt=""
-      />
+      /> -->
+      Slide 2
+
     </swiper-slide>
     <swiper-slide>
-      <img
+      <!-- <img
         class="slide-img"
         src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
         alt=""
-      />
+      /> -->
+      Slide 3
+
     </swiper-slide>
-    <ion-button v-if="!isEnd" size="small" fill="clear" class="option-btn " @click="swiper.slideNext()">
+    <ion-button v-if="!isEnd" fill="clear" slot="button-next" size="small" class="option-btn" @click="mySlides.slideNext()">
       Enter
       <ion-icon
         slot="end"
@@ -36,7 +41,7 @@
         :icon="chevronForwardOutline"
       ></ion-icon>
     </ion-button>
-    <ion-button v-else size="small" fill="clear" class="option-btn swiper-button-prev">
+    <ion-button v-else  routerLink="/home" size="small" fill="clear" class="option-btn swiper-button-prev">
       skip
       <ion-icon
         slot="end"
@@ -44,19 +49,23 @@
         :icon="chevronForwardOutline"
       ></ion-icon>
     </ion-button>
+
   </swiper>
 </template>
 <script>
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide,useSwiper  } from "swiper/vue";
+import { Swiper, SwiperSlide   } from "swiper/vue";
 import { IonButton, IonIcon } from "@ionic/vue";
-import { heart, chevronForwardOutline } from "ionicons/icons";
-import {onMounted, ref} from 'vue';
+import { useIonRouter } from '@ionic/vue';
+
+import { chevronForwardOutline } from "ionicons/icons";
+import { ref} from 'vue';
 
 // Import Swiper styles
 import "swiper/css";
+  import '@ionic/vue/css/ionic-swiper.css';
 
-import "swiper/scss/pagination";
+import "swiper/css/pagination";
 
 import "../scss/global.scss";
 
@@ -71,42 +80,33 @@ export default {
     IonIcon,
   },
   setup() {
-    const swiper = useSwiper();
     const mySlides = ref(null)
+    const ionRouter = useIonRouter();
     const isEnd = ref(false)
     const onSwiper = (swiper) => {
-      console.log('x ',(swiper));
+      mySlides.value = swiper
     };
     const onSlideChange = (swiper) => {
         isEnd.value = swiper.isEnd
-      
-        console.log("slide change ",swiper);
         return isEnd
-      
-
     };
-
-  onMounted( ()=>{
-      console.log('zxxAA ', {...mySlides.value});
-  })
-
-
-    const nextSilde = async () => {
-      
-      // const s= await mySlides?.value?.$el.getSwiper()
-      // console.log('s ',s);
-    };
+    const skip = ()=>{
+      ionRouter.push('/home')
+    }
     return {
       modules: [Pagination],
-      heart,
       chevronForwardOutline,
       isEnd,
       onSwiper,
       onSlideChange,
       mySlides,
-      swiper,
-      nextSilde
+      skip
     };
   },
 };
 </script>
+<style scoped>
+.swiper-slide {
+  background: rgb(179, 61, 248);
+}
+</style>

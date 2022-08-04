@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import HomePage from '../views/HomePage.vue'
 import SplashPage from '../views/SplashPage.vue'
 
 const routes = [
@@ -10,7 +9,7 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: HomePage
+    component: ()=> import('@/views/HomePage')
   },
   {
     path: '/splash',

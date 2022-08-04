@@ -15,7 +15,7 @@
     
       <div id="container">
         <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <!-- <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
       </div>
     </ion-content>
   </ion-page>
@@ -23,17 +23,17 @@
 
 <script>
 // import Tabs from '@/src/components/tabs'
-// import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default {
   name: 'HomePage',
   components: {
     // Tabs
-    // IonContent,
-    // IonHeader,
-    // IonPage,
-    // IonTitle,
-    // IonToolbar
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar
   }
 };
 </script>
