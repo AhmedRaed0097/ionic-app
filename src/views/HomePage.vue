@@ -1,69 +1,80 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Custome Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <!-- <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
-      </div>
+    <ion-content>
+      <ion-tabs>
+        <ion-router-outlet></ion-router-outlet>
+        <ion-tab-bar class="tabs-bar" slot="bottom">
+          <ion-tab-button class="tab-button" tab="tab1" href="/home/tab1">
+            <ion-icon class="tab-icon" :icon="arrowRedoOutline" />
+            <ion-label>Tab 1</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button class="tab-button" tab="tab2" href="/home/tab2">
+            <ion-icon class="tab-icon" :icon="balloonOutline" />
+            <ion-label>Tab 2</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button class="tab-button" tab="tab3" href="/home/tab3">
+            <ion-icon class="tab-icon" :icon="bookOutline" />
+            <ion-label>Tab 3</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-// import Tabs from '@/src/components/tabs'
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import {
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonContent,
+  IonLabel,
+  IonIcon,
+  IonPage,
+  IonRouterOutlet,
+} from "@ionic/vue";
+import { arrowRedoOutline, balloonOutline, bookOutline } from "ionicons/icons";
 
 export default {
-  name: 'HomePage',
+  name: "TabsPage",
   components: {
-    // Tabs
     IonContent,
-    IonHeader,
+    IonLabel,
+    IonTabs,
+    IonTabBar,
+    IonTabButton,
+    IonIcon,
     IonPage,
-    IonTitle,
-    IonToolbar
-  }
+    IonRouterOutlet,
+  },
+  setup() {
+    return {
+      arrowRedoOutline,
+      balloonOutline,
+      bookOutline,
+    };
+  },
 };
 </script>
-
-<style scoped>
-#container {
-  text-align: center;
-  
+<style lang="scss" scoped>
+.tabs-bar {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  bottom: 40px;
+  left: 6%;
+  width: 88%;
+  border: none;
+  box-shadow: 0px 4px 8px 0px #b6b5b5;
+  border-radius: 18px;
+  background-color: #fff !important;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  .tab-button {
+    background: transparent;
+    color: #909090;
+  }
+  .tab-selected {
+    color: var(--ion-color-primary-contrast);
+  }
 }
 </style>
