@@ -1,5 +1,5 @@
 const config = {
-  appId: 'io.ionic.starter',
+  appId: 'food123id',
   appName: 'FoodApp',
   webDir: 'dist',
   bundledWebRuntime: false

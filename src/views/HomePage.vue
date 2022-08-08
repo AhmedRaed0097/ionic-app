@@ -38,7 +38,7 @@ import {
 import { arrowRedoOutline, balloonOutline, bookOutline } from "ionicons/icons";
 
 export default {
-  name: "TabsPage",
+  name: "HomePage",
   components: {
     IonContent,
     IonLabel,

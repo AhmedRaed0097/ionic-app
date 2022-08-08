@@ -17,7 +17,7 @@
           </ion-item>
         </ion-col>
         <ion-col size="12">
-          <ion-button router-link="/home" color="primary" shape="round" expand="block">Login</ion-button>
+          <ion-button router-link="/home/tab1" color="primary" shape="round" expand="block">Login</ion-button>
         </ion-col>
        
       </ion-row>
