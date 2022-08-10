@@ -4,6 +4,8 @@ http://ionicframework.com/docs/theming/ */
 /** Ionic CSS Variables **/
 :root {
 	--ion-color-primary: #ffdd40;
+  --ion-tab-bar-color: #909090;
+  --ion-tab-bar-color-selected: #000;
   --ion-text-color: #202020;
 	--ion-color-primary-rgb: 56,128,255;
 	--ion-color-primary-contrast: #202020;

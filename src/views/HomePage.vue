@@ -58,23 +58,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.tabs-bar {
-  position: absolute;
-  bottom: 40px;
-  left: 6%;
-  width: 88%;
-  border: none;
-  box-shadow: 0px 4px 8px 0px #b6b5b5;
-  border-radius: 18px;
-  background-color: #fff !important;
-
-  .tab-button {
-    background: transparent;
-    color: #909090;
-  }
-  .tab-selected {
-    color: var(--ion-color-primary-contrast);
-  }
-}
-</style>

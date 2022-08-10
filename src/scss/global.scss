@@ -1,16 +1,13 @@
-#app { height: 100% ;
-  background: #fff;
+#app { 
   color: var(--ion-text-color);
 
 }
 html,
 body {
   position: relative;
-  height: 100%;
 }
 
 body {
-  background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -47,12 +44,10 @@ body {
   display: block;
   width: 100%;
   height: 100% !important;
-  // object-fit: cover;
 }
 .swiper-pagination-bullet-active {
     opacity: var(--swiper-pagination-bullet-opacity, 1);
     background: var(--ion-color-primary);
-    // background: gold;
     padding: 0 9px;
     border-radius: 5px;
 }
@@ -63,7 +58,6 @@ body {
 .option-btn{
   color: #fff;
   position: absolute;
-  /* font-size: 33px; */
   bottom: 10px;
   z-index: 1;
   right: 22px;
@@ -71,4 +65,34 @@ body {
 .swiper-pagination{
   bottom: 35px !important;
 }
+.rating {
+  font-weight: bold;
+  font-size: 15px;
+  color: orange;
+  float: right;
+}
+.vue-star-rating {
+  display: block !important;
+  margin-bottom: 8px; 
+}
 
+
+
+ion-tab-bar {
+  background-color: #fff;
+	box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.4);
+	border-radius: 16px !important;
+	height: 50px;
+	width: 90%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	bottom: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);	margin: 0 auto !important;
+	border-top: none;
+}
+
+ion-tab-button {
+    border-radius: 16px !important;
+}

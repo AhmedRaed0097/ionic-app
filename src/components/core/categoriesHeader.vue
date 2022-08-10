@@ -1,33 +1,43 @@
 <template>
   <ion-row class="categories-row">
     <ion-col size="4">
-      <ion-card button class="item-card" @click="setCardActive()">
+      <ion-card
+        :class="{ 'active-card': activeCard === 'food' }"
+        button
+        class="item-card"
+        @click="setCardActive('food')"
+      >
         <ion-card-header>
-          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-          <!-- <ion-card-title>Card Title</ion-card-title> -->
-          <ion-icon class="tab-icon" :icon="cloudOutline" />
+          <ion-img src="../../../assets/icons/categories/food.svg"> </ion-img>
+        </ion-card-header>
+        <ion-card-content> Food </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="4">
+      <ion-card
+        :class="{ 'active-card': activeCard === 'drink' }"
+        button
+        class="item-card"
+        @click="setCardActive('drink')"
+      >
+        <ion-card-header>
+          <ion-img src="../../../assets/icons/categories/drink.svg"> </ion-img>
         </ion-card-header>
         <ion-card-content> Drink </ion-card-content>
       </ion-card>
     </ion-col>
     <ion-col size="4">
-      <ion-card c button class="item-card" @click="setCardActive()">
+      <ion-card
+        :class="{ 'active-card': activeCard === 'dessert' }"
+        button
+        class="item-card"
+        @click="setCardActive('dessert')"
+      >
         <ion-card-header>
-          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-          <!-- <ion-card-title>Card Title</ion-card-title> -->
-          <ion-icon class="tab-icon" :icon="cloudOutline" />
+          <ion-img src="../../../assets/icons/categories/dessert.svg">
+          </ion-img>
         </ion-card-header>
-        <ion-card-content> Drink </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col size="4">
-      <ion-card c button class="item-card" @click="setCardActive()">
-        <ion-card-header>
-          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-          <!-- <ion-card-title>Card Title</ion-card-title> -->
-          <ion-icon class="tab-icon" :icon="cloudOutline" />
-        </ion-card-header>
-        <ion-card-content> Drink </ion-card-content>
+        <ion-card-content> Dessert </ion-card-content>
       </ion-card>
     </ion-col>
   </ion-row>
@@ -40,7 +50,7 @@ import {
   IonRow,
   IonCol,
   IonCardContent,
-  IonIcon,
+  IonImg,
 } from "@ionic/vue";
 import { cloudOutline } from "ionicons/icons";
 import { ref } from "vue";
@@ -57,10 +67,10 @@ export default {
     IonRow,
     IonCol,
     IonCardContent,
-    IonIcon,
+    IonImg,
   },
   setup() {
-    const activeCard = ref("");
+    const activeCard = ref("food");
 
     const setCardActive = (cardType) => {
       activeCard.value = cardType;
@@ -69,6 +79,7 @@ export default {
     return {
       cloudOutline,
       setCardActive,
+      activeCard,
     };
   },
 };
@@ -80,23 +91,43 @@ export default {
   .item-card {
     width: 80%;
     height: 80%;
+
+    --background: #ededed;
     ion-card-header {
       text-align: center;
-      margin-bottom:  15px;
+      margin-bottom: 12px;
+      margin-top: 12px;
       padding-top: 10px;
       padding-bottom: 0;
-      ion-icon {
-        width: 35px;
-        height: 40px;
-      }
+
+      
     }
     ion-card-content {
       padding-left: 0;
       padding-right: 0;
       text-align: center;
+      color: #000;
+      padding: 0;
     }
     .ion-activatable {
       --background: #ffd700;
+    }
+  }
+
+  .active-card {
+    --background: #ffd700;
+    ion-card-header {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      ion-img {
+        width: 43px;
+        height: 43px;
+        margin-top: 5px;
+        background: white;
+        border-radius: 100%;
+        padding: 5px;
+      }
     }
   }
 }

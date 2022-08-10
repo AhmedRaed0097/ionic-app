@@ -33,10 +33,26 @@
                 </ion-item>
               </ion-col>
               <ion-col size="6">
-                <item-card></item-card>
+                <item-card>
+                  <template #item-img>
+                    <img
+                      height="120"
+                      class="item-img"
+                      src="assets/images/meals/meal1.jpg"
+                    />
+                  </template>
+                </item-card>
               </ion-col>
               <ion-col size="6">
-                <item-card></item-card>
+                <item-card>
+                  <template #item-img>
+                    <img
+                      height="120"
+                      class="item-img"
+                      src="assets/images/meals/meal2.jpg"
+                    />
+                  </template>
+                </item-card>
               </ion-col>
             </ion-row>
             <ion-row class="ion-margin-top">
@@ -50,14 +66,35 @@
                     slot="end"
                   >
                     View All
+                    <ion-icon
+                      slot="end"
+                      size="small"
+                      :icon="chevronForwardOutline"
+                    ></ion-icon>
                   </ion-button>
                 </ion-item>
               </ion-col>
               <ion-col size="6">
-                <item-card></item-card>
+                <item-card>
+                  <template #item-img>
+                    <img
+                      height="120"
+                      class="item-img"
+                      src="assets/images/restaurants/restaurant1.jpg"
+                    />
+                  </template>
+                </item-card>
               </ion-col>
               <ion-col size="6">
-                <item-card></item-card>
+                <item-card>
+                  <template #item-img>
+                    <img
+                      height="120"
+                      class="item-img"
+                      src="assets/images/restaurants/restaurant2.jpg"
+                    />
+                  </template>
+                </item-card>
               </ion-col>
             </ion-row>
           </ion-col>
@@ -77,7 +114,7 @@ import {
   IonButton,
   IonLabel,
   IonItem,
-  IonIcon
+  IonIcon,
 } from "@ionic/vue";
 import { chevronForwardOutline } from "ionicons/icons";
 import categoriesHeader from "../components/core/categoriesHeader.vue";
@@ -98,13 +135,13 @@ export default {
     IonButton,
     IonLabel,
     IonItem,
-    IonIcon
+    IonIcon,
   },
-  setup(){
-    return{
-      chevronForwardOutline
-    }
-  }
+  setup() {
+    return {
+      chevronForwardOutline,
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -113,16 +150,18 @@ export default {
   background: var(--ion-color-primary);
   color: #000;
   padding-left: 0;
-  // border-radius: 25px 0 0 25px  ;
 }
 .larg-col {
-  // background: blue;
+  margin-bottom: 100px;
 }
 .grid,
 .row {
-  height: 100%;
 }
 .grid {
   padding: 0 !important;
+}
+.section-header {
+  font-size: 20px;
+  font-weight: bold;
 }
 </style>

@@ -43,22 +43,9 @@ export default {
   margin-top: 312px;
   z-index: 1;
   width: 430px;
-  right: 192px;
+  right: 182px;
   ion-label {
     color: #000;
   }
-  --background-checked: linear-gradient(to right, #2d2e87, #0083cb) !important;
-
-  indicator{
-    background: red;
-  }
 }
-.segment-button-checked {
-  --indicator-height: 9px !important;
-  // indicator-color: red !important;
-  --indicator-color : red !important;
-}
-
-
-
 </style>

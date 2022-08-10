@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-grid>
-      <ion-row>
+      <ion-row class="form-wrapper">
         <ion-col size="12">
           <!-- <img src="../../../public/assets/logo.png"/> -->
           <ion-img src="../../assets/images/logo2.png"></ion-img>
@@ -57,5 +57,7 @@ export default {
 .password-field{
     margin-bottom: 12px;
 }
-
+.form-wrapper{
+  margin-top: 30%;
+}
 </style>
