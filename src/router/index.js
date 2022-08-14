@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import HomePage from '../views/HomePage.vue'
-import SplashPage from '../views/SplashPage.vue'
+import SlidesPage from '../views/SlidesPage.vue'
 import LoginPage from '../views/auth/LoginPage.vue'
 import tab1 from '../views/Tab1Page.vue'
+import itemDetails from '../views/itemDetailsPage.vue'
 
 const routes = [
   {
@@ -17,7 +18,7 @@ const routes = [
    
     { path:'/',
       name: 'Tab1',
-      component:tab1
+      redirect:'/tab1'
     },
    
     { path:'tab1',
@@ -33,20 +34,26 @@ const routes = [
     { path:'tab3',
       name: 'Tab3',
       component:()=>import('@/views/Tab3Page')
-    },
+    },  
     
     ]
   },
   {
     path: '/splash',
     name: 'Splash',
-    component: SplashPage
+    component: SlidesPage
   },
   {
     path: '/auth/login',
     name: 'Login',
     component: LoginPage
-  }
+  },
+  {
+    path: '/item/:id',
+    name: 'Details',
+    component: itemDetails
+  }  
+  
 ]
 
 const router = createRouter({

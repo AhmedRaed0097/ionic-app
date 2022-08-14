@@ -1,5 +1,5 @@
 <template>
-  <ion-card button @click="cardClicked()">
+  <ion-card>
     <!-- <ion-card-header>
       </ion-card-header> -->
     <ion-card-content>
@@ -16,18 +16,37 @@
         <!-- </ion-button> -->
       </div>
       <div class="details">
-        <ion-card-title>Lorem, ipsum.</ion-card-title>
-        <ion-card-subtitle>Lorem ipsum dolor sit.</ion-card-subtitle>
+        <ion-card-title router-link="/item/1"> Lorem, ipsum. </ion-card-title>
+        <ion-card-subtitle router-link="/item/1"
+          >Lorem ipsum dolor sit.</ion-card-subtitle
+        >
         <star-rating
           v-model="rating"
           active-color="orange"
           :star-size="15"
           :increment="0.5"
+          :show-rating="isMeal ? true : false"
           text-class="rating"
         ></star-rating>
 
-        <div class="item-price">
+        <div v-if="isMeal" class="item-price">
           <span> 22.8$ </span>
+        </div>
+        <div v-else class="restaurant-info">
+          <div class="distance">
+            <ion-icon :icon="locationOutline"></ion-icon>
+            <span>
+              
+              12km
+              </span>
+            </div>
+        <div class="time">
+          <ion-icon :icon="timerOutline"></ion-icon>
+          <span>
+            30min
+
+          </span>
+          </div>
         </div>
       </div>
     </ion-card-content>
@@ -43,9 +62,15 @@ import {
 } from "@ionic/vue";
 import StarRating from "vue-star-rating";
 
-import { addCircle } from "ionicons/icons";
+import { addCircle,locationOutline, timerOutline } from "ionicons/icons";
 import { ref } from "vue";
 export default {
+  props: {
+    isMeal: {
+      type: Boolean,
+      default: true,
+    },
+  },
   components: {
     IonCard,
     IonCardTitle,
@@ -54,15 +79,17 @@ export default {
     StarRating,
     IonIcon,
   },
-  setup() {
+  setup(_, context) {
     const cardClicked = () => {
-      console.log("clicked");
+      context.emit("clicked");
     };
     const rating = ref("");
     return {
       cardClicked,
       rating,
       addCircle,
+      locationOutline,
+      timerOutline
     };
   },
 };
@@ -102,5 +129,9 @@ ion-card {
   color: #000;
   font-size: 14px;
   font-weight: bold;
+}
+.restaurant-info{
+  display: flex;
+  justify-content: space-between;
 }
 </style>

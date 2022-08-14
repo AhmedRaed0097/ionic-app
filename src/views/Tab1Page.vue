@@ -1,6 +1,6 @@
 <template>
-  <ion-page class="homepage">
-    <ion-content fullscreen>
+  <ion-page>
+    <ion-content>
       <ion-grid class="grid">
         <ion-row class="row">
           <ion-col class="small-col" size="2">
@@ -75,7 +75,7 @@
                 </ion-item>
               </ion-col>
               <ion-col size="6">
-                <item-card>
+                <item-card :isMeal="false">
                   <template #item-img>
                     <img
                       height="120"
@@ -86,7 +86,7 @@
                 </item-card>
               </ion-col>
               <ion-col size="6">
-                <item-card>
+                <item-card :isMeal="false">
                   <template #item-img>
                     <img
                       height="120"
@@ -106,8 +106,6 @@
 
 <script>
 import {
-  IonContent,
-  IonPage,
   IonGrid,
   IonRow,
   IonCol,
@@ -115,17 +113,19 @@ import {
   IonLabel,
   IonItem,
   IonIcon,
+  IonPage,
+  IonContent,
 } from "@ionic/vue";
 import { chevronForwardOutline } from "ionicons/icons";
 import categoriesHeader from "../components/core/categoriesHeader.vue";
 import sideTabs from "../components/core/sideTaps.vue";
 import itemCard from "../components/share/itemCard.vue";
+import { useRouter } from "vue-router";
+
 export default {
   name: "tabPage",
 
   components: {
-    IonContent,
-    IonPage,
     IonGrid,
     IonRow,
     IonCol,
@@ -136,10 +136,18 @@ export default {
     IonLabel,
     IonItem,
     IonIcon,
+    IonPage,
+    IonContent,
   },
+
   setup() {
+    const router = useRouter();
+    const gotToDetails = (id) => {
+      router.push(`/item/${id}`);
+    };
     return {
       chevronForwardOutline,
+      gotToDetails,
     };
   },
 };

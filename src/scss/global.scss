@@ -76,8 +76,6 @@ body {
   margin-bottom: 8px; 
 }
 
-
-
 ion-tab-bar {
   background-color: #fff;
 	box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.4);
@@ -91,8 +89,15 @@ ion-tab-bar {
   left: 50%;
   transform: translate(-50%, 0);	margin: 0 auto !important;
 	border-top: none;
+  z-index: 11 !important;
 }
 
 ion-tab-button {
     border-radius: 16px !important;
+}
+ion-card-title {
+  font-size: 20px;
+}
+ion-card-subtitle {
+  font-size: 14px;
 }
