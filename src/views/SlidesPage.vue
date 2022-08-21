@@ -6,31 +6,24 @@
       :pagination="true"
       :modules="modules"
       :initial-slide="0"
+      
       class="mySwiper"
     >
       <swiper-slide>
-        <!-- <img
-        class="slide-img"
-        src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80"
-        alt=""
-      /> -->
-        Slide 1
+
+        <!-- Slide 1 -->
+        <img src="/assets/images/restaurants/restaurant2.jpg" alt="">
       </swiper-slide>
       <swiper-slide>
-        <!-- <img
-        class="slide-img"
-        src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-        alt=""
-      /> -->
-        Slide 2
+        <!-- Slide 2 -->
+        <img src="/assets/images/restaurants/restaurant3.jpg" alt="">
+
       </swiper-slide>
       <swiper-slide>
-        <!-- <img
-        class="slide-img"
-        src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-        alt=""
-      /> -->
-        Slide 3
+        
+        <!-- Slide 3 -->
+        <img src="/assets/images/restaurants/restaurant4.jpg" alt="">
+
       </swiper-slide>
     </swiper>
     <ion-button

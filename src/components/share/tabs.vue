@@ -58,7 +58,7 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss" scoped>
 .hidden-outlet {
   display: none;
 }

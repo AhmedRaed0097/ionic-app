@@ -54,6 +54,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ion-grid{
+  background: #fff;
+}
 .password-field{
     margin-bottom: 12px;
 }

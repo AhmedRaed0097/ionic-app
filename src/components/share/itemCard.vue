@@ -1,10 +1,10 @@
 <template>
-  <ion-card>
+  <ion-card :class="{ 'small-card': forPagination }">
     <!-- <ion-card-header>
       </ion-card-header> -->
     <ion-card-content>
       <div class="img-wrapper">
-        <slot class="item-img" name="item-img"></slot>
+        <slot name="item-img"></slot>
         <!-- <ion-button fill="clear"> -->
         <ion-icon
           size="large"
@@ -16,36 +16,35 @@
         <!-- </ion-button> -->
       </div>
       <div class="details">
-        <ion-card-title router-link="/item/1"> Lorem, ipsum. </ion-card-title>
-        <ion-card-subtitle router-link="/item/1"
+        <ion-card-title :router-link="isMeal ? '/meals/1' : '/restaurants/1'">
+          Lorem, ipsum.
+        </ion-card-title>
+        <ion-card-subtitle
+          v-if="!forPagination"
+          :router-link="isMeal ? '/meals/1' : '/restaurants/1'"
           >Lorem ipsum dolor sit.</ion-card-subtitle
         >
+
         <star-rating
           v-model="rating"
           active-color="orange"
-          :star-size="15"
+          :star-size="forPagination ? 9 : 15"
           :increment="0.5"
           :show-rating="isMeal ? true : false"
           text-class="rating"
         ></star-rating>
 
-        <div v-if="isMeal" class="item-price">
+        <div v-if="isMeal && !forPagination" class="item-price">
           <span> 22.8$ </span>
         </div>
-        <div v-else class="restaurant-info">
+        <div v-if="!isMeal" class="restaurant-info">
           <div class="distance">
             <ion-icon :icon="locationOutline"></ion-icon>
-            <span>
-              
-              12km
-              </span>
-            </div>
-        <div class="time">
-          <ion-icon :icon="timerOutline"></ion-icon>
-          <span>
-            30min
-
-          </span>
+            <span> 12km </span>
+          </div>
+          <div class="time">
+            <ion-icon :icon="timerOutline"></ion-icon>
+            <span> 30min </span>
           </div>
         </div>
       </div>
@@ -56,13 +55,13 @@
 import {
   IonCard,
   IonCardTitle,
-  IonCardSubtitle,
+  // IonCardSubtitle,
   IonCardContent,
   IonIcon,
 } from "@ionic/vue";
 import StarRating from "vue-star-rating";
 
-import { addCircle,locationOutline, timerOutline } from "ionicons/icons";
+import { addCircle, locationOutline, timerOutline } from "ionicons/icons";
 import { ref } from "vue";
 export default {
   props: {
@@ -70,11 +69,15 @@ export default {
       type: Boolean,
       default: true,
     },
+    forPagination: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     IonCard,
     IonCardTitle,
-    IonCardSubtitle,
+    // IonCardSubtitle,
     IonCardContent,
     StarRating,
     IonIcon,
@@ -89,7 +92,7 @@ export default {
       rating,
       addCircle,
       locationOutline,
-      timerOutline
+      timerOutline,
     };
   },
 };
@@ -97,8 +100,10 @@ export default {
 
 <style lang="scss" scoped>
 ion-card {
-  max-width: 100%;
+  height: 100%;
   margin: 0;
+  text-align: left;
+
   ion-card-header {
     padding: 0;
   }
@@ -106,6 +111,7 @@ ion-card {
     padding: 0;
   }
   .img-wrapper {
+    width: 100%;
     ion-icon {
       position: absolute;
       z-index: 5;
@@ -113,14 +119,31 @@ ion-card {
       top: 5px;
     }
   }
+
   .details {
-    padding: 10px 10px 5px;
+    padding: 5px 10px 5px;
     ion-card-title {
-      font-size: 14px;
+      font-size: 13px;
     }
     ion-card-subtitle {
       font-size: 10px;
     }
+  }
+}
+
+.small-card {
+  // width: 80%;
+  height:max-content ;
+  .details {
+    // padding: 0;
+    .vue-star-rating {
+      // background: red;
+      margin-bottom: 0;
+    }
+  }
+  .img-wrapper {
+    width: 100%;
+    height: 90px;
   }
 }
 .item-price {
@@ -130,7 +153,7 @@ ion-card {
   font-size: 14px;
   font-weight: bold;
 }
-.restaurant-info{
+.restaurant-info {
   display: flex;
   justify-content: space-between;
 }

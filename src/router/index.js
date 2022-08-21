@@ -3,7 +3,8 @@ import HomePage from '../views/HomePage.vue'
 import SlidesPage from '../views/SlidesPage.vue'
 import LoginPage from '../views/auth/LoginPage.vue'
 import tab1 from '../views/Tab1Page.vue'
-import itemDetails from '../views/itemDetailsPage.vue'
+import mealDetails from '../views/MealDetails.vue'
+import RestaurantDetails from '../views/RestaurantDetails.vue'
 
 const routes = [
   {
@@ -49,11 +50,16 @@ const routes = [
     component: LoginPage
   },
   {
-    path: '/item/:id',
-    name: 'Details',
-    component: itemDetails
-  }  
-  
+    path: '/restaurants/:id',
+    name: 'restaurantsDetails',
+    component: RestaurantDetails
+  },
+  {
+    path: '/meals/:id',
+    name: 'mealsDetails',
+    component: mealDetails
+  },  
+ 
 ]
 
 const router = createRouter({
