@@ -12,6 +12,12 @@ export default {
   components: {
     IonApp,
     IonRouterOutlet
-  }
+  },
+  
 };
 </script>
+<style>
+.ion-page{
+  overflow-y: auto;
+}
+</style>

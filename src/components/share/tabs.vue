@@ -5,17 +5,24 @@
     ></ion-router-outlet>
     <ion-tab-bar class="tabs-bar" slot="bottom">
       <ion-tab-button class="tab-button" tab="tab1" href="/home/tab1">
-        <ion-icon class="tab-icon" :icon="arrowRedoOutline" />
-        <ion-label>Tab 1</ion-label>
+        <ion-icon class="tab-icon" :icon="homeOutline" />
+        <ion-label>Home</ion-label>
       </ion-tab-button>
 
       <ion-tab-button class="tab-button" tab="tab2" href="/home/tab2">
-        <ion-icon class="tab-icon" :icon="balloonOutline" />
-        <ion-label>Tab 2</ion-label>
+        <ion-icon
+          class="tab-icon"
+          :icon="heartOutline"
+        />
+        <ion-label>Favorite</ion-label>
       </ion-tab-button>
       <ion-tab-button class="tab-button" tab="tab3" href="/home/tab3">
-        <ion-icon class="tab-icon" :icon="bookOutline" />
-        <ion-label>Tab 3</ion-label>
+        <ion-icon class="tab-icon" :icon="notificationsOutline" />
+        <ion-label>Notifications</ion-label>
+      </ion-tab-button>
+      <ion-tab-button class="tab-button" tab="tab4" href="/home/tab3">
+        <ion-label>Profile</ion-label>
+        <ion-icon class="tab-icon" :icon="personOutline" />
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
@@ -31,7 +38,13 @@ import {
   IonIcon,
 } from "@ionic/vue";
 
-import { arrowRedoOutline, balloonOutline, bookOutline } from "ionicons/icons";
+import {
+  homeOutline,
+  heart,
+  heartOutline,
+  notificationsOutline,
+  personOutline,
+} from "ionicons/icons";
 
 export default {
   name: "HomePage",
@@ -51,9 +64,11 @@ export default {
   },
   setup() {
     return {
-      arrowRedoOutline,
-      balloonOutline,
-      bookOutline,
+      homeOutline,
+      heartOutline,
+      heart,
+      notificationsOutline,
+      personOutline,
     };
   },
 };

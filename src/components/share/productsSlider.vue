@@ -57,27 +57,20 @@ export default {
 
 <style lang="scss" scoped>
 .productsSwiper{
-  background: red;
   height: 40vh;
+  position: relative;
+  overflow-y: auto;
 }
 ion-col {
-  // padding: 0 15px;
   margin-bottom: 20px;
   min-height: 144px;
 }
 .prod-img {
   width: 100% !important;
 }
-
   ion-grid {
-      // margin-top: 19px;
-    // background: red;
-    // padding-right: 16px;
     height: max-content;
-    // overflow: scroll;
-
     ion-row {
-      // height: 80%;
       ion-col{
         height: max-content;
       }

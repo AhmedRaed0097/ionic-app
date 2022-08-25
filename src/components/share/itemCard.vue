@@ -55,7 +55,7 @@
 import {
   IonCard,
   IonCardTitle,
-  // IonCardSubtitle,
+  IonCardSubtitle,
   IonCardContent,
   IonIcon,
 } from "@ionic/vue";
@@ -77,7 +77,7 @@ export default {
   components: {
     IonCard,
     IonCardTitle,
-    // IonCardSubtitle,
+    IonCardSubtitle,
     IonCardContent,
     StarRating,
     IonIcon,

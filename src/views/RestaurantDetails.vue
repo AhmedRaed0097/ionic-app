@@ -60,11 +60,6 @@ import {
   IonPage,
   IonContent,
   IonButton,
-  // IonCard,
-  // IonCardContent,
-  // IonCardHeader,
-  // IonCardTitle,
-  // IonCardSubtitle,
 } from "@ionic/vue";
 import Tabs from "../components/share/tabs.vue";
 import { ref } from "vue";
@@ -80,11 +75,6 @@ export default {
     StarRating,
     chipsSlider,
     productsSlider,
-    // IonCard,
-    // IonCardContent,
-    // IonCardHeader,
-    // IonCardTitle,
-    // IonCardSubtitle,
     Tabs,
   },
   setup() {
@@ -93,6 +83,11 @@ export default {
       rating,
     };
   },
+  watch:{
+    '$route.name'(val){
+      console.log('124 ',val);
+    }
+  }
 };
 </script>
 

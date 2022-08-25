@@ -99,8 +99,6 @@ export default {
       margin-top: 12px;
       padding-top: 10px;
       padding-bottom: 0;
-
-      
     }
     ion-card-content {
       padding-left: 0;
@@ -128,6 +126,10 @@ export default {
         border-radius: 100%;
         padding: 5px;
       }
+    }
+    ion-card-content {
+      position: relative;
+      bottom: 3px;
     }
   }
 }

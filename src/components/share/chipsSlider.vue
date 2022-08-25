@@ -3,11 +3,11 @@
     :pagination="true"
     :slidesPerView="4"
     :initial-slide="0"
-    :loop="true"
     :space-between="10"
     class="chipsSwiper"
     color="transparent"
   >
+    <!-- :loop="true" -->
     <swiper-slide v-for="i in categoriesList" :key="i.id">
       <ion-chip
       :outline="selectedCategory === i.categoryName ? false : true"
