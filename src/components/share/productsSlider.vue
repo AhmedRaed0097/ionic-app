@@ -57,9 +57,12 @@ export default {
 
 <style lang="scss" scoped>
 .productsSwiper{
-  height: 40vh;
+  height: 50vh;
   position: relative;
   overflow-y: auto;
+}
+ion-grid{
+  padding-top: 0;
 }
 ion-col {
   margin-bottom: 20px;

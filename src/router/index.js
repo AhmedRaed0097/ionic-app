@@ -27,9 +27,9 @@ const routes = [
       component:tab1
     },
     
-    { path:'tab2',
-      name: 'Tab2',
-      component:()=>import('@/views/Tab2Page')
+    { path:'Favorites',
+      name: 'FavoritesPage',
+      component:()=>import('@/views/FavoritesPage')
     },
     
     { path:'tab3',
@@ -51,13 +51,23 @@ const routes = [
   },
   {
     path: '/restaurants/:id',
-    name: 'restaurantsDetails',
+    name: 'RestaurantsDetails',
     component: RestaurantDetails
   },
   {
     path: '/meals/:id',
-    name: 'mealsDetails',
+    name: 'MealsDetails',
     component: mealDetails
+  },  
+  {
+    path: '/cart',
+    name: 'CartPage',
+    component:()=>import('@/views/CartPage')
+  },  
+  {
+    path: '/checkout',
+    name: 'CheckoutPage',
+    component:()=>import('@/views/CheckoutPage')
   },  
  
 ]

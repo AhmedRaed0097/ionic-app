@@ -1,5 +1,5 @@
 <template>
-  <ion-card :class="{ 'small-card': forPagination }">
+  <ion-card mode="ios" :class="{ 'small-card': forPagination }">
     <!-- <ion-card-header>
       </ion-card-header> -->
     <ion-card-content>
@@ -132,8 +132,8 @@ ion-card {
 }
 
 .small-card {
-  // width: 80%;
   height:max-content ;
+ 
   .details {
     // padding: 0;
     .vue-star-rating {
@@ -143,8 +143,13 @@ ion-card {
   }
   .img-wrapper {
     width: 100%;
-    height: 90px;
+    height: 13vh;
+    background: rgb(50, 50, 50);
   }
+    .prod-img{
+      // height: ;
+      display: none !important;
+    }
 }
 .item-price {
   display: flex;

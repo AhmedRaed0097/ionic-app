@@ -8,29 +8,41 @@
           </ion-col>
           <ion-col class="larg-col" size="10">
             <ion-row>
+              <ion-col class="cart-col" size="12">
+                <div class="btn-wrapper ion-padding">
+                  <ion-button color="dark" size="small" fill="clear">
+                    <ion-icon
+                      slot="icon-only"
+                      class="tab-icon"
+                      :icon="search"
+                    />
+                  </ion-button>
+
+                  <!-- router-link="/cart" -->
+                  <ion-button
+                    @click="navigate"
+                    color="dark"
+                    size="small"
+                    fill="clear"
+                  >
+                    <ion-icon
+                      class="tab-icon"
+                      slot="icon-only"
+                      :icon="cartOutline"
+                    />
+                  </ion-button>
+                </div>
+              </ion-col>
               <ion-col size="12">
                 <categories-header></categories-header>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size="12">
-                <ion-item class="section-header native">
-                  <ion-label>Popular Breakfast</ion-label>
-
-                  <ion-button
-                    color="light"
-                    size="small"
-                    fill="clear"
-                    slot="end"
-                  >
-                    View All
-                    <ion-icon
-                      slot="end"
-                      size="small"
-                      :icon="chevronForwardOutline"
-                    ></ion-icon>
-                  </ion-button>
-                </ion-item>
+                <sectionTitle
+                  :title="'Popular Breakfast'"
+                  :view-all-route="'/home'"
+                />
               </ion-col>
               <ion-col size="6">
                 <item-card>
@@ -57,22 +69,10 @@
             </ion-row>
             <ion-row class="ion-margin-top">
               <ion-col size="12">
-                <ion-item class="section-header native">
-                  <ion-label>Shop Near You</ion-label>
-                  <ion-button
-                    color="light"
-                    size="small"
-                    fill="clear"
-                    slot="end"
-                  >
-                    View All
-                    <ion-icon
-                      slot="end"
-                      size="small"
-                      :icon="chevronForwardOutline"
-                    ></ion-icon>
-                  </ion-button>
-                </ion-item>
+                <sectionTitle
+                  :title="'Shop Near You'"
+                  :view-all-route="'/home'"
+                />
               </ion-col>
               <ion-col size="6">
                 <item-card :isMeal="false">
@@ -109,18 +109,16 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonButton,
-  IonLabel,
-  IonItem,
-  IonIcon,
   IonPage,
   IonContent,
+  IonButton,
+  IonIcon,
 } from "@ionic/vue";
-import { chevronForwardOutline } from "ionicons/icons";
 import categoriesHeader from "../components/core/categoriesHeader.vue";
 import sideTabs from "../components/core/sideTaps.vue";
 import itemCard from "../components/share/itemCard.vue";
 import { useRouter } from "vue-router";
+import { search, cartOutline } from "ionicons/icons";
 
 export default {
   name: "tabPage",
@@ -132,12 +130,10 @@ export default {
     sideTabs,
     categoriesHeader,
     itemCard,
-    IonButton,
-    IonLabel,
-    IonItem,
-    IonIcon,
     IonPage,
     IonContent,
+    IonButton,
+    IonIcon,
   },
 
   setup() {
@@ -146,9 +142,15 @@ export default {
       router.push(`/item/${id}`);
     };
     return {
-      chevronForwardOutline,
       gotToDetails,
+      search,
+      cartOutline,
     };
+  },
+  methods: {
+    navigate() {
+      this.$router.push("/cart");
+    },
   },
 };
 </script>
@@ -158,9 +160,17 @@ export default {
   background: var(--ion-color-primary);
   color: #000;
   padding-left: 0;
+  min-height: 100vh;
 }
 .larg-col {
-  margin-bottom: 100px;
+  // height: 116vh;
+  margin-bottom:100px;
+@media (min-height :300px) and (max-height:800px){
+  height: 1020px;
+  margin-bottom: 0;
+  // display: none;
+  
+};
 }
 .grid,
 .row {
@@ -168,8 +178,21 @@ export default {
 .grid {
   padding: 0 !important;
 }
-.section-header {
-  font-size: 20px;
-  font-weight: bold;
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  * {
+    padding: 0 !important;
+  }
+}
+.cart-col {
+  position: relative;
+  top: 30px;
+  right: 10px;
+}
+.item-img{
+  width: 100% !important;
 }
 </style>

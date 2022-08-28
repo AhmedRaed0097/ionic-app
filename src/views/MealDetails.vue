@@ -17,11 +17,11 @@
         <ion-card>
           <div class="top-line"></div>
           <ion-card-content>
-          <ion-card-header>
-            <ion-card-title> Slow cooker beef stronganoff </ion-card-title>
+            <ion-card-header>
+              <ion-card-title> Slow cooker beef stronganoff </ion-card-title>
 
-            <ion-card-subtitle> Connie Restaurant </ion-card-subtitle>
-          </ion-card-header>
+              <ion-card-subtitle> Connie Restaurant </ion-card-subtitle>
+            </ion-card-header>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. ullam
               dolor quo iste praesentium voluptatibus tenetur! Quidem aliquam
@@ -32,6 +32,7 @@
             <span class="price">$24.99</span>
 
             <ion-button
+              mode="ios"
               class="add-btn"
               size="large"
               router-link="/home/tab1"
@@ -117,23 +118,23 @@ ion-img {
 }
 
 .card-wrapper {
-
   height: 50%;
   position: relative;
   ion-card {
-
     position: absolute;
     width: 100%;
     height: 110%;
-    overflow-y: auto;
     bottom: 0;
     margin: 0;
     border-radius: 30px 30px 0 0;
     ion-card-content {
-        overflow-y: auto;
-  // background: red;
-  height: 72%;
-      padding-bottom: 0;
+      overflow-y: auto;
+      // background: red;
+      height: 72%;
+      padding: 0 17px;
+    }
+    ion-card-header {
+      padding-top: 18px;
     }
     .top-line {
       background: var(--ion-color-primary);
@@ -164,7 +165,7 @@ ion-img {
 .serving {
   margin-top: 16px;
 }
-.content-wrapper{
+.content-wrapper {
   // background: red;
   // height: 70%;
 }

@@ -2,6 +2,7 @@
   <ion-row class="categories-row">
     <ion-col size="4">
       <ion-card
+        mode="ios"
         :class="{ 'active-card': activeCard === 'food' }"
         button
         class="item-card"
@@ -15,6 +16,7 @@
     </ion-col>
     <ion-col size="4">
       <ion-card
+        mode="ios"
         :class="{ 'active-card': activeCard === 'drink' }"
         button
         class="item-card"
@@ -28,6 +30,7 @@
     </ion-col>
     <ion-col size="4">
       <ion-card
+        mode="ios"
         :class="{ 'active-card': activeCard === 'dessert' }"
         button
         class="item-card"
@@ -87,14 +90,21 @@ export default {
 
 <style lang="scss" scoped>
 .categories-row {
-  padding: 16px 16px 0 0;
+  padding: 0 16px 0 0;
+  ion-col {
+    // background: red;
+    display: flex;
+    justify-content: center;
+  }
   .item-card {
-    width: 80%;
-    height: 80%;
+    min-width: 66px;
+    max-width: 100px;
+    // height: max-content;
 
     --background: #ededed;
     ion-card-header {
-      text-align: center;
+      display: flex;
+      justify-content: center;
       margin-bottom: 12px;
       margin-top: 12px;
       padding-top: 10px;
@@ -113,18 +123,18 @@ export default {
   }
 
   .active-card {
+    @extend .item-card;
     --background: #ffd700;
+
     ion-card-header {
-      padding: 0;
-      display: flex;
-      justify-content: center;
+      padding: 10px;
+
       ion-img {
-        width: 43px;
-        height: 43px;
-        margin-top: 5px;
+        width: 73px;
+        margin-top: -8px;
         background: white;
         border-radius: 100%;
-        padding: 5px;
+        padding: 10px;
       }
     }
     ion-card-content {

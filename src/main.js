@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
-import pageLayout from "@/components/share/pageLayout.vue";
+import sectionTitle from "@/components/share/sectionTitle";
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -26,11 +26,11 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 const app = createApp(App)
-app.component('pageLayout', pageLayout)
+app.component('sectionTitle', sectionTitle)
 
   .use(IonicVue)
   .use(router);
-  
+
 router.isReady().then(() => {
   app.mount('#app');
 });

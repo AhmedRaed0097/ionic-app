@@ -1,5 +1,6 @@
 <template>
   <ion-segment
+    mode="md"
     @ionChange="segmentChanged($event)"
     value="breakfast"
     class="segment"

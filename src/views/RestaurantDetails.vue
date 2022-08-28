@@ -37,10 +37,10 @@
               <chips-slider />
             </div>
           </ion-col>
+          <ion-col class="col-content" size="12">
+            <productsSlider />
+          </ion-col>
 
-         
-                <productsSlider />
-         
           <ion-col class="taps-col" size="12">
             <Tabs />
           </ion-col>
@@ -60,6 +60,9 @@ import {
   IonPage,
   IonContent,
   IonButton,
+  IonRow,
+  IonGrid,
+  IonCol,
 } from "@ionic/vue";
 import Tabs from "../components/share/tabs.vue";
 import { ref } from "vue";
@@ -76,6 +79,9 @@ export default {
     chipsSlider,
     productsSlider,
     Tabs,
+    IonRow,
+    IonGrid,
+    IonCol,
   },
   setup() {
     const rating = ref(4);
@@ -83,11 +89,11 @@ export default {
       rating,
     };
   },
-  watch:{
-    '$route.name'(val){
-      console.log('124 ',val);
-    }
-  }
+  watch: {
+    "$route.name"(val) {
+      console.log("124 ", val);
+    },
+  },
 };
 </script>
 
@@ -96,50 +102,28 @@ export default {
   position: relative;
   img {
     width: 100%;
-    height: 240px;
-  }
-  .res-details {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0 16px;
-    background: rgba(254, 254, 254, 0.715);
-    * {
-      margin: 0;
-    }
+    height: 30vh;
   }
 }
 
 .slider-wrapper {
-  // height: 45px;
+  margin-top: -10px;
 }
-.products-wrapper {
-  // height: 55%;
-  // background: red;
-  .products-slider-wrapper {
-    // height: 79%;
-    // background: green;
-  }
-  .small-tabs {
-    position: relative;
-    //   height: 100px !important;
-  }
+.small-tabs {
+  position: relative;
 }
+
 ion-grid {
   padding: 0;
   height: 100%;
   .res-row {
     height: 100%;
-    // background: red;
     .slider-col {
       background: aqua;
       position: relative;
-      // bottom: px;
       height: 294px;
-      // overflow: auto;
       .products-wrapper {
         height: 93% !important;
-        // background: green;
         .products-slider-wrapper {
           height: 100%;
         }
@@ -148,16 +132,10 @@ ion-grid {
 
     .taps-col {
       height: 96px;
-      // position: relative;
-      // bottom: 0;
-      // background: rgb(23, 131, 226);
-      // display: flex !important;
-      // flex-direction: column;
-      // align-items: flex-end !important;
       ion-tabs {
-        // margin-top: -70px !important;
         position: relative !important;
         top: 0 !important;
+        margin-top: -8px;
       }
     }
     .img-col {
@@ -170,9 +148,14 @@ img {
   width: 100%;
 }
 .chips-col {
-  height: max-content;
+  height: 50px;
   // background: red;
+  margin-top: -5px;
+  margin-bottom: 10px;
   // position: relative;
   // bottom: 50px;
+}
+.col-content {
+  // margin-top: -13px;
 }
 </style>

@@ -9,12 +9,12 @@
         <ion-label>Home</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button class="tab-button" tab="tab2" href="/home/tab2">
+      <ion-tab-button class="tab-button" tab="Favorites" href="/home/favorites">
         <ion-icon
           class="tab-icon"
           :icon="heartOutline"
         />
-        <ion-label>Favorite</ion-label>
+        <ion-label>Favorites</ion-label>
       </ion-tab-button>
       <ion-tab-button class="tab-button" tab="tab3" href="/home/tab3">
         <ion-icon class="tab-icon" :icon="notificationsOutline" />
