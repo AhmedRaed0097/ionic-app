@@ -22,7 +22,7 @@
           </div>
         </div>
       </ion-label>
-      <span>{{ item.price }}$</span>
+      <span class="item-price">{{ item.price }}$</span>
     </ion-item>
   </ion-list>
 </template>
@@ -35,7 +35,7 @@ import {
   IonLabel,
   IonButton,
 } from "@ionic/vue";
-import { ref } from "vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -46,37 +46,10 @@ export default {
     IonButton,
   },
   setup() {
-    const cartItems = ref([
-      {
-        id: 1,
-        title: "Lorem ipsum",
-        subTitle: "dolor sit amet",
-        img: "/assets/images/meals/burgers/burger4.jpg",
-        price: 20,
-        count: 1,
-      },
-      {
-        id: 2,
-        title: "Lorem ipsum",
-        subTitle: "dolor sit amet",
-        img: "/assets/images/meals/burgers/burger2.jpg",
-        price: 15,
-        count: 1,
-      },
-      {
-        id: 3,
-        title: "Lorem ipsum",
-        subTitle: "dolor sit amet",
-        img: "/assets/images/meals/burgers/burger3.jpg",
-        price: 16,
-        count: 1,
-      },
-    ]);
-    const itemsCount = ref(1);
-    return {
-      itemsCount,
-      cartItems,
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters("cart", { cartItems: "cartItems" }),
   },
 };
 </script>
@@ -100,7 +73,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
-    margin-left:6px;
+    margin-left: 6px;
     ion-button {
       width: 15px;
       height: 20px;
@@ -108,8 +81,11 @@ h3 {
     }
     span {
       background: #eee;
-      padding: 0  7px 0 15px;
+      padding: 0 7px 0 15px;
     }
   }
+}
+.item-price {
+  margin-top: 30px;
 }
 </style>

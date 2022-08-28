@@ -4,7 +4,7 @@
       </ion-card-header> -->
     <ion-card-content>
       <div class="img-wrapper">
-        <slot name="item-img"></slot>
+        <img height="120" class="prod-img" :src="item.img" />
         <!-- <ion-button fill="clear"> -->
         <ion-icon
           size="large"
@@ -17,34 +17,34 @@
       </div>
       <div class="details">
         <ion-card-title :router-link="isMeal ? '/meals/1' : '/restaurants/1'">
-          Lorem, ipsum.
+          {{ item.name }}
         </ion-card-title>
         <ion-card-subtitle
           v-if="!forPagination"
           :router-link="isMeal ? '/meals/1' : '/restaurants/1'"
-          >Lorem ipsum dolor sit.</ion-card-subtitle
+          >{{ item.description }}</ion-card-subtitle
         >
 
         <star-rating
           v-model="rating"
           active-color="orange"
-          :star-size="forPagination ? 9 : 15"
+          :star-size="forPagination ? 12 : 15"
           :increment="0.5"
           :show-rating="isMeal ? true : false"
           text-class="rating"
         ></star-rating>
 
         <div v-if="isMeal && !forPagination" class="item-price">
-          <span> 22.8$ </span>
+          <span> {{ item.price }}$ </span>
         </div>
         <div v-if="!isMeal" class="restaurant-info">
           <div class="distance">
             <ion-icon :icon="locationOutline"></ion-icon>
-            <span> 12km </span>
+            <span> {{ item.destination ? item.destination : 10 }}km </span>
           </div>
           <div class="time">
             <ion-icon :icon="timerOutline"></ion-icon>
-            <span> 30min </span>
+            <span> {{ item.period ? item.period : 10 }}min </span>
           </div>
         </div>
       </div>
@@ -68,6 +68,10 @@ export default {
     isMeal: {
       type: Boolean,
       default: true,
+    },
+    item: {
+      type: Object,
+      default: () => {},
     },
     forPagination: {
       type: Boolean,
@@ -119,6 +123,9 @@ ion-card {
       top: 5px;
     }
   }
+    .prod-img {
+  width: 100% !important;
+}
 
   .details {
     padding: 5px 10px 5px;
@@ -132,8 +139,8 @@ ion-card {
 }
 
 .small-card {
-  height:max-content ;
- 
+  height: max-content;
+
   .details {
     // padding: 0;
     .vue-star-rating {
@@ -146,10 +153,7 @@ ion-card {
     height: 13vh;
     background: rgb(50, 50, 50);
   }
-    .prod-img{
-      // height: ;
-      display: none !important;
-    }
+  
 }
 .item-price {
   display: flex;

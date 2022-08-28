@@ -12,15 +12,16 @@
       </ion-toolbar>
     </ion-header>
     <ion-content fullscreen class="ion-padding">
+    
       <section class="order-details">
-        <h2>Order Details</h2>
+        <h3>Order Details</h3>
         <div class="section-content">
-          <ion-item v-for="i in 4" :key="i">
+          <ion-item v-for="item in cartItems" :key="item.id">
             <ion-label>
-              <h3>Lorem ipsum</h3>
-              <p>(qt.1)</p>
+              <h3>{{item.name}}</h3>
+              <p>(qt.{{item.count}})</p>
             </ion-label>
-            <span>20$</span>
+            <span>{{item.price}}$</span>
           </ion-item>
         </div>
       </section>
@@ -28,19 +29,20 @@
         <div class="section-content">
           <ion-item lines="none">
             <ion-label>Total: </ion-label>
-            <span>24.00$</span>
+            <span>{{total}}$</span>
           </ion-item>
-          <ion-item lines="none">
+         
+         <ion-item lines="none">
             <ion-label> Delivery Fee: </ion-label>
             <span>5.00$</span>
           </ion-item>
           <ion-item lines="none">
             <ion-label> Sub Total: </ion-label>
-            <span>24.00$</span>
+            <span>{{total + 5 }}$</span>
           </ion-item>
+         
         </div>
       </section>
-
       <section class="cash">
         <ion-item lines="none">
           <ion-label> Cash on Delivery </ion-label>
@@ -88,6 +90,7 @@
 <script>
 import { ref } from "vue";
 import { search } from "ionicons/icons";
+import { mapGetters } from "vuex";
 
 import {
   IonPage,
@@ -131,6 +134,11 @@ export default {
       search,
     };
   },
+  computed:{
+    ...mapGetters('cart',{cartItems: 'cartItems'}),
+    ...mapGetters('cart',{total: 'total'})
+    
+  }
 };
 </script>
 <style lang="scss">

@@ -17,7 +17,6 @@
                       :icon="search"
                     />
                   </ion-button>
-
                   <!-- router-link="/cart" -->
                   <ion-button
                     @click="navigate"
@@ -44,27 +43,9 @@
                   :view-all-route="'/home'"
                 />
               </ion-col>
-              <ion-col size="6">
-                <item-card>
-                  <template #item-img>
-                    <img
-                      height="120"
-                      class="item-img"
-                      src="assets/images/meals/meal1.jpg"
-                    />
-                  </template>
-                </item-card>
-              </ion-col>
-              <ion-col size="6">
-                <item-card>
-                  <template #item-img>
-                    <img
-                      height="120"
-                      class="item-img"
-                      src="assets/images/meals/meal2.jpg"
-                    />
-                  </template>
-                </item-card>
+              <ion-col v-for="meal in popularBreakfast" :key="meal.id" size="6">
+                <item-card :item="meal" />
+               
               </ion-col>
             </ion-row>
             <ion-row class="ion-margin-top">
@@ -74,28 +55,11 @@
                   :view-all-route="'/home'"
                 />
               </ion-col>
-              <ion-col size="6">
-                <item-card :isMeal="false">
-                  <template #item-img>
-                    <img
-                      height="120"
-                      class="item-img"
-                      src="assets/images/restaurants/restaurant1.jpg"
-                    />
-                  </template>
-                </item-card>
+              <ion-col v-for="resturant in nearResturants" :key="resturant.id" size="6">
+                <item-card :item="resturant" :isMeal="false" />
+                 
               </ion-col>
-              <ion-col size="6">
-                <item-card :isMeal="false">
-                  <template #item-img>
-                    <img
-                      height="120"
-                      class="item-img"
-                      src="assets/images/restaurants/restaurant2.jpg"
-                    />
-                  </template>
-                </item-card>
-              </ion-col>
+            
             </ion-row>
           </ion-col>
         </ion-row>
@@ -119,6 +83,7 @@ import sideTabs from "../components/core/sideTaps.vue";
 import itemCard from "../components/share/itemCard.vue";
 import { useRouter } from "vue-router";
 import { search, cartOutline } from "ionicons/icons";
+import { mapGetters } from "vuex";
 
 export default {
   name: "tabPage",
@@ -147,11 +112,21 @@ export default {
       cartOutline,
     };
   },
-  methods: {
+methods: {
     navigate() {
       this.$router.push("/cart");
     },
   },
+  computed:{
+    // popularBreakfast(){
+    //   return this.$store.state.meals.popular_breakfast
+    // },
+    // nearResturants(){
+    //   return this.$store.state.resturants.near_resturants
+    // },
+    ...mapGetters('meals',{popularBreakfast: 'popularBreakfast'}),
+    ...mapGetters('resturants',{nearResturants: 'nearResturants'})
+  }
 };
 </script>
 <style lang="scss" scoped>

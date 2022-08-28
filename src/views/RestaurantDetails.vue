@@ -89,11 +89,6 @@ export default {
       rating,
     };
   },
-  watch: {
-    "$route.name"(val) {
-      console.log("124 ", val);
-    },
-  },
 };
 </script>
 

@@ -29,11 +29,8 @@ export default {
     IonLabel,
   },
   setup() {
-    const segmentChanged = (e) => {
-      console.log("event ", e);
-    };
     return {
-      segmentChanged,
+      //
     };
   },
 };

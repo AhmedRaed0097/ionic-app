@@ -21,12 +21,12 @@
       <section class="order-details">
         <h3>Order Details</h3>
         <div class="section-content">
-          <ion-item v-for="i in 3" :key="i">
+          <ion-item v-for="item in cartItems" :key="item.id">
             <ion-label>
-              <h3>Lorem ipsum</h3>
-              <p>(qt.1)</p>
+              <h3>{{item.name}}</h3>
+              <p>(qt.{{item.count}})</p>
             </ion-label>
-            <span>20$</span>
+            <span>{{item.price}}$</span>
           </ion-item>
         </div>
       </section>
@@ -34,7 +34,7 @@
         <div class="section-content">
           <ion-item lines="none">
             <ion-label>Total: </ion-label>
-            <span>24.00$</span>
+            <span>{{total}}$</span>
           </ion-item>
          
          <ion-item lines="none">
@@ -43,7 +43,7 @@
           </ion-item>
           <ion-item lines="none">
             <ion-label> Sub Total: </ion-label>
-            <span>24.00$</span>
+            <span>{{total + 5 }}$</span>
           </ion-item>
          
         </div>
@@ -78,6 +78,8 @@ import {
   IonLabel,
 } from "@ionic/vue";
 import cartItemsList from "../components/cart/cartItemsList.vue";
+import { mapGetters } from "vuex";
+
 export default {
   components: {
     IonPage,
@@ -98,6 +100,11 @@ export default {
       itemsCount,
     };
   },
+  computed:{
+    ...mapGetters('cart',{cartItems: 'cartItems'}),
+    ...mapGetters('cart',{total: 'total'})
+    
+  }
 };
 </script>
 <style lang="scss">
