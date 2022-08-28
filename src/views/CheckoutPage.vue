@@ -68,12 +68,6 @@
                 <ion-input placeholder="" value="" type="date" pattern="\d{4}-\d{2}-\d{2}"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col size="12">
-                <ion-item>
-                <ion-input  placeholder="Card Holder Name" type="text"></ion-input>
-                </ion-item>
-              </ion-col>
-
             </ion-row>
           </ion-grid>
       </section>
