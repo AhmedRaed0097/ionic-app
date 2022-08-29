@@ -12,20 +12,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content fullscreen class="ion-padding">
-      <Transition name="bounce">
-        <div v-if="show" class="card-wrapper">
-          <ion-card class="alrt-card">
-            <ion-icon
-              size="large"
-              shape="round"
-              color="primary"
-              class="card-icon"
-              :icon="checkmarkCircleOutline"
-            ></ion-icon>
-            <span>Lorem ipsum dolor sit.</span>
-          </ion-card>
-        </div>
-      </Transition>
+     
       <section class="order-details">
         <h3>Order Details</h3>
         <div class="section-content">
@@ -38,6 +25,20 @@
           </ion-item>
         </div>
       </section>
+      <Transition name="bounce">
+        <div v-if="show" class="card-wrapper">
+          <ion-card class="alrt-card">
+            <ion-icon
+              size="large"
+              shape="round"
+              color="primary"
+              class="card-icon"
+              :icon="checkmarkCircleOutline"
+            ></ion-icon>
+            <span>Payment Successfull</span>
+          </ion-card>
+        </div>
+      </Transition>
       <section class="total">
         <div class="section-content">
           <ion-item lines="none">
@@ -101,6 +102,7 @@
           </ion-row>
         </ion-grid>
       </section>
+      
       <ion-button
         mode="ios"
         size="large"
@@ -137,6 +139,7 @@ import {
   IonGrid,
   IonCol,
   IonButton,
+  IonIcon
 } from "@ionic/vue";
 export default {
   components: {
@@ -156,6 +159,7 @@ export default {
     IonGrid,
     IonCol,
     IonButton,
+    IonIcon
   },
   setup() {
     const show = ref(false);
@@ -164,7 +168,7 @@ export default {
       show.value = true;
       setTimeout(() => {
         show.value = false;
-      }, 2000);
+      }, 3000);
     };
     return {
       itemsCount,
@@ -217,10 +221,11 @@ export default {
   height: 90%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: absolute;
   right: 0;
   z-index: 11;
+  // background: rgba(0, 0, 0, 0.209);
   .alrt-card {
     width: 300px;
     height: 180px;

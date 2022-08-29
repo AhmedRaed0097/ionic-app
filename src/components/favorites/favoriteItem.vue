@@ -47,6 +47,10 @@ export default {
   img {
     width: 100%;
     height: 22vh;
+    @media (min-width:500px) {
+    height: 46vh;
+      
+    }
     border-radius: 14px;
   }
   .res-details {
