@@ -5,6 +5,7 @@ const state = () => ({
         name:'Lorem ipsum',
         description:'Lorem ipsum dolor sit amet',
         img:'assets/images/meals/burgers/burger1.jpg',
+        rate:5,
         price:20
     },
     {
@@ -12,6 +13,7 @@ const state = () => ({
         name:'Lorem ipsum',
         description:'Lorem ipsum dolor sit amet',
         img:'assets/images/meals/burgers/burger2.jpg',
+        rate:4.5,
         price:25
     },
     {
@@ -19,6 +21,7 @@ const state = () => ({
         name:'Lorem ipsum',
         description:'Lorem ipsum dolor sit amet',
         img:'assets/images/meals/burgers/burger3.jpg',
+        rate:4,
         price:15
     },
     {
@@ -26,6 +29,7 @@ const state = () => ({
         name:'Lorem ipsum',
         description:'Lorem ipsum dolor sit amet',
         img:'assets/images/meals/burgers/burger4.jpg',
+        rate:3.5,
         price:30
     }
  ],
@@ -35,6 +39,7 @@ const state = () => ({
         name:'Lorem ipsum',
         description:'Lorem ipsum dolor sit amet',
         img:'assets/images/meals/meal1.jpg',
+        rate:5,
         price:20
     },
     {
@@ -42,6 +47,7 @@ const state = () => ({
         name:'Lorem ipsum',
         description:'Lorem ipsum dolor sit amet',
         img:'assets/images/meals/meal2.jpg',
+        rate:4,
         price:25
     }
  ]
@@ -53,6 +59,12 @@ const getters = {
     },
     mealsList(state){
             return state.meals;
+    },
+    mealById(state){
+        return (id) => {
+            // return state.meals.find(u => u.id === id);
+            return state.meals.find(u => u.id == id);
+        }
     }
 };
  
