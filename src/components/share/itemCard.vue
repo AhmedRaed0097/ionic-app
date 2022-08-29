@@ -16,7 +16,7 @@
         <!-- </ion-button> -->
       </div>
       <div class="details">
-        <ion-card-title :router-link="isMeal ? '/meals/1' : '/restaurants/1'">
+        <ion-card-title :router-link="isMeal ? `/meals/${item.id}` : '/restaurants/1'">
           {{ item.name }}
         </ion-card-title>
         <ion-card-subtitle

@@ -18,18 +18,16 @@
           <div class="top-line"></div>
           <ion-card-content>
             <ion-card-header>
-              <ion-card-title> Slow cooker beef stronganoff </ion-card-title>
+              <ion-card-title> {{meal.name}} </ion-card-title>
 
-              <ion-card-subtitle> Connie Restaurant </ion-card-subtitle>
+              <!-- <ion-card-subtitle>  {{meal.name}} </ion-card-subtitle> -->
             </ion-card-header>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. ullam
-              dolor quo iste praesentium voluptatibus tenetur! Quidem aliquam
-              officia voluptates magni.
+              {{meal.description}}
             </p>
             <p class="serving">4 servings</p>
 
-            <span class="price">$24.99</span>
+            <span class="price">${{meal.price}}</span>
 
             <ion-button
               mode="ios"
@@ -58,12 +56,13 @@ import {
   IonCardContent,
   IonCardHeader,
   IonCardTitle,
-  IonCardSubtitle,
+  // IonCardSubtitle,
 } from "@ionic/vue";
 import Tabs from "../components/share/tabs.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { arrowRedoOutline, balloonOutline, bookOutline } from "ionicons/icons";
+import { mapGetters } from "vuex";
 
 export default {
   name: "ItemDetials",
@@ -75,11 +74,12 @@ export default {
     IonCardContent,
     IonCardHeader,
     IonCardTitle,
-    IonCardSubtitle,
+    // IonCardSubtitle,
     Tabs,
   },
   setup() {
     const txt = ref("back");
+    const meal = ref({});
     const showAlert = () => {
       alert("clicked");
     };
@@ -94,8 +94,21 @@ export default {
       arrowRedoOutline,
       balloonOutline,
       bookOutline,
+      meal
     };
   },
+  computed:{
+    // mealsList(){
+    //   return this.$store.state.meals.meals
+    // },
+    ...mapGetters('meals',{mealById: 'mealById'})
+
+  },
+
+  mounted(){
+    this.meal = this.mealById(this.$route.params.id)
+    console.log('meal ',this.meal.name);
+  }
 };
 </script>
 
