@@ -1,4 +1,4 @@
-package io.ionic.demo.pg.vue;
+package com.food.app;
 
 import com.getcapacitor.BridgeActivity;
 

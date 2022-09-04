@@ -16,7 +16,7 @@
         <!-- </ion-button> -->
       </div>
       <div class="details">
-        <ion-card-title :router-link="isMeal ? `/meals/${item.id}` : '/restaurants/1'">
+        <ion-card-title :router-link="isMeal ? `/meals/${item.id}` : `/restaurants/${item.id}`">
           {{ item.name }}
         </ion-card-title>
         <ion-card-subtitle
@@ -27,6 +27,7 @@
 
         <star-rating
           v-model="rating"
+          :rating="item.rate"
           active-color="orange"
           :star-size="forPagination ? 12 : 15"
           :increment="0.5"

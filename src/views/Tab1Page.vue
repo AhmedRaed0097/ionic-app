@@ -10,7 +10,9 @@
             <ion-row>
               <ion-col class="cart-col" size="12">
                 <div class="btn-wrapper ion-padding">
-                  <ion-button size="small" fill="clear">
+                  <ion-button 
+                  color="dark"
+                  size="small" fill="clear">
                     <ion-icon
                       slot="icon-only"
                       class="tab-icon"
@@ -20,6 +22,7 @@
                   <!-- router-link="/cart" -->
                   <ion-button
                     @click="navigate"
+                    color="dark"
                     size="small"
                     fill="clear"
                   >

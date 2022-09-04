@@ -50,7 +50,23 @@ const state = () => ({
         rate:4,
         price:25
     }
- ]
+ ],
+ favorites:[
+    [
+      {
+        id: 1,
+        name: "Lorem, ipsum dolor.",
+        img: "/assets/images/meals/meal1.jpg",
+        description: "Lorem ipsum dolor sit amet consectetur.",
+      },
+      {
+        id: 2,
+        name: "Lorem, ipsum dolor.",
+        img: "/assets/images/meals/meal2.jpg",
+        description: "Lorem ipsum dolor sit amet consectetur.",
+      },
+    ]
+  ]
 });
  
 const getters = {
@@ -59,6 +75,9 @@ const getters = {
     },
     mealsList(state){
             return state.meals;
+    },
+    favoriteMeals(state){
+        return state.favorites;
     },
     mealById(state){
         return (id) => {

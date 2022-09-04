@@ -11,7 +11,7 @@
         {{ txt }}
       </ion-button>
       <div class="img-wapper">
-        <img src="/assets/images/meals/meal1.2.jpg" />
+        <img :src="meal.img" />
       </div>
       <div class="card-wrapper">
         <ion-card>
@@ -107,7 +107,6 @@ export default {
 
   mounted(){
     this.meal = this.mealById(this.$route.params.id)
-    console.log('meal ',this.meal.name);
   }
 };
 </script>

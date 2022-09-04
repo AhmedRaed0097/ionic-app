@@ -17,11 +17,11 @@
         <ion-row>
           <ion-col size="12">
             <sectionTitle :title="'Food'" :view-all-route="'/home'" />
-            <favoriteItem />
+            <favoriteItem v-for="meal in favoriteMeals" :key="meal.id" :item-data="meal" />
           </ion-col>
           <ion-col size="12">
             <sectionTitle :title="'Resturants'" :view-all-route="'/home'" />
-            <favoriteItem :type="'restaurant'" />
+            <favoriteItem v-for="resturant in favoriteResturants" :key="resturant.id" :item-data="resturant" />
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -44,6 +44,7 @@ import {
 } from "@ionic/vue";
 import favoriteItem from "../components/favorites/favoriteItem.vue";
 import sectionTitle from "../components/share/sectionTitle.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -59,6 +60,11 @@ export default {
     IonBackButton,
     IonTitle,
     IonButtons
+  },
+  computed: {
+    ...mapGetters("meals", { favoriteMeals: "favoriteMeals" }),
+    ...mapGetters("resturants", { favoriteResturants: "favoriteResturants" }),
+
   },
 };
 </script>

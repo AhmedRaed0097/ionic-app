@@ -15,13 +15,13 @@
               </ion-button>
               <!-- <div class="res-overlay"></div> -->
               <!-- <div> -->
-              <img src="/assets/images/meals/meal1.2.jpg" />
+              <img :src="resturant.img" />
               <div class="res-details">
-                <h2>Lorem, ipsum dolor.</h2>
-                <h5>Lorem ipsum dolor sit amet consectetur.</h5>
+                <h2>{{resturant.name}}</h2>
+                <h5>{{resturant.description}}</h5>
                 <star-rating
                   v-model="rating"
-                  :rating="rating"
+                  :rating="resturant.rate"
                   active-color="orange"
                   :star-size="15"
                   :increment="0.5"
@@ -66,9 +66,9 @@ import {
 } from "@ionic/vue";
 import Tabs from "../components/share/tabs.vue";
 import { ref } from "vue";
-// import { useRouter } from "vue-router";
-// import { arrowRedoOutline, balloonOutline, bookOutline } from "ionicons/icons";
 import chipsSlider from "../components/share/chipsSlider.vue";
+import { mapGetters } from "vuex";
+
 export default {
   name: "RestaurantDetails",
   components: {
@@ -85,10 +85,21 @@ export default {
   },
   setup() {
     const rating = ref(4);
+    const resturant = ref({});
+
     return {
       rating,
+      resturant
     };
   },
+  computed:{
+    ...mapGetters('resturants',{resturantById: 'resturantById'})
+
+  },
+
+  mounted(){
+    this.resturant = this.resturantById(this.$route.params.id)
+  }
 };
 </script>
 

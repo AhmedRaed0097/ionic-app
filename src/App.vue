@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import { IonApp, IonRouterOutlet,isPlatform } from '@ionic/vue';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 export default {
   name: 'App',
@@ -13,6 +14,14 @@ export default {
     IonApp,
     IonRouterOutlet
   },
+  setup(){
+    if(isPlatform('android')){
+
+      StatusBar.setBackgroundColor({color: '#ffdd40'})
+      StatusBar.setStyle({ style: Style.Light });
+    }
+
+  }
   
 };
 </script>

@@ -24,7 +24,8 @@ const state = () => ({
             price: 16,
             count: 1,
           },
-    ]
+    ],
+   
 });
  
 const getters = {

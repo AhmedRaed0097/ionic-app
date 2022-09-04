@@ -9,7 +9,7 @@ import RestaurantDetails from '../views/RestaurantDetails.vue'
 const routes = [
   {
     path: '/',
-    redirect: '/splash'
+    redirect: '/auth/login'
   },
   {
     path: '/home',
